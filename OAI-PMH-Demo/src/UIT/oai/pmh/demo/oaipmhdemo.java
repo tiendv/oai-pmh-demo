@@ -5,6 +5,8 @@
 package UIT.oai.pmh.demo;
 
 import ORG.oclc.oai.harvester2.app.RawWrite;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.OutputStream;
 
 /**
@@ -27,13 +29,17 @@ public class oaipmhdemo {
     public static void demoCiteseerX() {
         try {
             // Output to standard System.out
-            OutputStream out = System.out;
+//            OutputStream out = System.out;
+
+            File file = new File("/CiteseerXData.xml");
+            FileOutputStream fop = new FileOutputStream(file);
+        
             // Use run in RawWrite
             // Base url is documented in dropbox\docs
             // For demo purpose, not specify from and until date
             // metadata format is Dublin core
             // In CiteseerX, set is null
-            RawWrite.run("http://citeseerx.ist.psu.edu/oai2", null, null, "oai_dc", null, out);
+            RawWrite.run("http://citeseerx.ist.psu.edu/oai2", "2010-01-01", "2010-02-01", "oai_dc", null, fop);
         } catch (Exception e) {
             e.printStackTrace();
         }
