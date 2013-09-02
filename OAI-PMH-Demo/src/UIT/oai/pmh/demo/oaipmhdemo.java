@@ -31,7 +31,7 @@ public class oaipmhdemo {
             // Output to standard System.out
 //            OutputStream out = System.out;
 
-            File file = new File("/CiteseerXData.xml");
+            File file = new File("C:/datasets/OAIPMHDemo/CiteseerXData.xml");
             FileOutputStream fop = new FileOutputStream(file);
         
             // Use run in RawWrite
@@ -39,7 +39,6 @@ public class oaipmhdemo {
             // For demo purpose, not specify from and until date
             // metadata format is Dublin core
             // In CiteseerX, set is null
-//            RawWrite.run("https://citeseerx.ist.psu.edu/oai2", "2010-01-01", "2010-02-01", "oai_dc", null, fop);
             RawWrite.run("https://citeseerx.ist.psu.edu/oai2", null, null, "oai_dc", null, fop);
         } catch (Exception e) {
             e.printStackTrace();
